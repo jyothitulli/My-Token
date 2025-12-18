@@ -22,7 +22,7 @@ The project demonstrates the core principles behind fungible tokens on the Ether
 
 ---
 
-## 📘 What is an ERC-20 Token?
+## What is an ERC-20 Token?
 
 ERC-20 is the official Ethereum standard for fungible (interchangeable) tokens.  
 It defines a consistent token behavior that enables compatibility with wallets, exchanges, decentralized apps, and other smart contracts.
@@ -36,33 +36,33 @@ It defines a consistent token behavior that enables compatibility with wallets, 
 
 ---
 
-## ✨ Implemented Features
+##  Implemented Features
 
-### ✔ Balance Tracking
+###  Balance Tracking
 - `balanceOf(address)` — returns token balance
 
-### ✔ Direct Transfer
+###  Direct Transfer
 - `transfer(address to, uint256 amount)` — moves tokens from sender to recipient
 
-### ✔ Allowance System
+###  Allowance System
 - `approve(address spender, uint256 amount)` — allows spender to use tokens  
 - `allowance(address owner, address spender)` — checks approved amount
 
-### ✔ Delegated Transfer
+###  Delegated Transfer
 - `transferFrom(address from, address to, uint256 amount)` — spends approved tokens
 
-### ✔ Events
+###  Events
 - `Transfer` — emitted on token movement  
 - `Approval` — emitted when allowance is set
 
-### ✔ Validation
+###  Validation
 - Prevent transfers to zero address  
 - Check sufficient balance  
 - Check sufficient allowance  
 
 ---
 
-## 🚀 Deployment Instructions (Remix IDE)
+##  Deployment Instructions (Remix IDE)
 
 ### 1. Open Remix
 https://remix.ethereum.org/
@@ -94,7 +94,7 @@ Test functions like:
 ---
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 Screenshots stored in `/screenshots/`:
 - `compilation.png`
@@ -105,7 +105,7 @@ Screenshots stored in `/screenshots/`:
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 ```
 my-token/
 ├── contracts/
