@@ -1,192 +1,166 @@
-MyToken (MTK) — ERC-20 Token Project
-📌 Overview
+# MyToken (MTK) — ERC-20 Token Project
 
-MyToken (MTK) is an ERC-20 compliant fungible token written in Solidity and deployed using Remix IDE.
-This project demonstrates the fundamental concepts behind ERC-20 tokens on the Ethereum blockchain, including token transfers, allowances, delegated transfers, and event emissions.
+This repository contains an ERC-20 token implementation written in Solidity and deployed using Remix IDE.  
+The project demonstrates the core principles behind fungible tokens on the Ethereum blockchain, including transfers, allowances, and event emissions.
 
-The project is intended for learning and demonstration purposes.
+---
 
-🔗 Token Details
-Property	Value
-Name	MyToken
-Symbol	MTK
-Decimals	18
-Total Supply	1,000,000 MTK
-Initial Mint	Entire supply minted to deployer
-On-chain totalSupply Value
+##  Token Details
 
-Due to 18 decimals:
+| Property | Value |
+|---------|--------|
+| **Name** | MyToken |
+| **Symbol** | MTK |
+| **Decimals** | 18 |
+| **Total Supply** | 1,000,000 MTK (1 million tokens) |
+| **Initial Mint** | Entire supply minted to deployer |
 
+**On-chain `totalSupply` value (due to 18 decimals):**
+```
 1000000000000000000000000
+```
 
-What is an ERC-20 Token?
+---
 
-ERC-20 is the official Ethereum standard for fungible (interchangeable) tokens.
-It defines a common interface that ensures compatibility with:
+## 📘 What is an ERC-20 Token?
 
-Wallets
+ERC-20 is the official Ethereum standard for fungible (interchangeable) tokens.  
+It defines a consistent token behavior that enables compatibility with wallets, exchanges, decentralized apps, and other smart contracts.
 
-Exchanges
+### Core ERC-20 Behaviors
+- Transfer tokens between addresses  
+- Track balances  
+- Approve another address to spend tokens  
+- Delegated transfers using `transferFrom`  
+- Emit `Transfer` and `Approval` events  
 
-Decentralized applications (dApps)
+---
 
-Other smart contracts
+## ✨ Implemented Features
 
-Core ERC-20 Behaviors
+### ✔ Balance Tracking
+- `balanceOf(address)` — returns token balance
 
-Transfer tokens between addresses
+### ✔ Direct Transfer
+- `transfer(address to, uint256 amount)` — moves tokens from sender to recipient
 
-Track account balances
+### ✔ Allowance System
+- `approve(address spender, uint256 amount)` — allows spender to use tokens  
+- `allowance(address owner, address spender)` — checks approved amount
 
-Approve another address to spend tokens
+### ✔ Delegated Transfer
+- `transferFrom(address from, address to, uint256 amount)` — spends approved tokens
 
-Perform delegated transfers using transferFrom
+### ✔ Events
+- `Transfer` — emitted on token movement  
+- `Approval` — emitted when allowance is set
 
-Emit Transfer and Approval events
+### ✔ Validation
+- Prevent transfers to zero address  
+- Check sufficient balance  
+- Check sufficient allowance  
 
-✨ Implemented Features
-✔ Balance Tracking
+---
 
-balanceOf(address) — returns token balance
+## 🚀 Deployment Instructions (Remix IDE)
 
-✔ Direct Transfers
+### 1. Open Remix
+https://remix.ethereum.org/
 
-transfer(address to, uint256 amount)
+### 2. Add Contract
+Create `/contracts/MyToken.sol` and paste the Solidity code.
 
-Moves tokens from sender to recipient
+### 3. Compile
+- Compiler: **Solidity 0.8.x**
+- Click **Compile MyToken.sol**
 
-✔ Allowance System
-
-approve(address spender, uint256 amount) — grants spending permission
-
-allowance(address owner, address spender) — checks approved amount
-
-✔ Delegated Transfers
-
-transferFrom(address from, address to, uint256 amount)
-
-Spends tokens using approved allowance
-
-✔ Events
-
-Transfer — emitted on token movement
-
-Approval — emitted when allowance is set
-
-✔ Validations
-
-Prevent transfers to zero address
-
-Ensure sufficient balance
-
-Ensure sufficient allowance
-
-🚀 Deployment Instructions (Remix IDE)
-1️⃣ Open Remix
-
-Visit: https://remix.ethereum.org/
-
-2️⃣ Add Contract
-
-Create the file:
-
-/contracts/MyToken.sol
-
-
-Paste the Solidity contract code.
-
-3️⃣ Compile
-
-Compiler version: Solidity 0.8.x
-
-Click Compile MyToken.sol
-
-4️⃣ Deploy
-
-Environment: Remix VM (Prague)
-
-Initial supply:
-
+### 4. Deploy
+- Environment: **Remix VM (Prague)**
+- Initial supply input:
+```
 1000000000000000000000000
+```
+- Click **Deploy**
 
+### 5. Interact Using Remix
+Test functions like:
+- `name()`, `symbol()`, `decimals()`, `totalSupply()`
+- `transfer()`
+- `approve()`
+- `transferFrom()`
+- `allowance()`
+- `balanceOf()`
 
-Click Deploy
+---
 
-📝 Usage Examples
-🔹 Check Balance
+## 📝 Usage Examples
+
+### Check Balance
+```
 balanceOf(0xYourAddress)
+```
 
-🔹 Transfer 1 MTK
+### Transfer 1 MTK
+```
 transfer(0xRecipient, 1000000000000000000)
+```
 
-🔹 Approve 5 MTK
+### Approve 5 MTK
+```
 approve(0xSpender, 5000000000000000000)
+```
 
-🔹 Delegated Transfer (2 MTK)
-transferFrom(
-  0xOwner,
-  0xReceiver,
-  2000000000000000000
-)
+### Spender Transfers 2 MTK
+```
+transferFrom(0xOwner, 0xReceiver, 2000000000000000000)
+```
 
-🧪 Testing Performed
-✔ Metadata Verification
+---
 
-Name
+## 🧪 Testing Performed
 
-Symbol
+### Metadata Verification
+- Name, Symbol, Decimals, Total Supply
 
-Decimals
+### Transfer Test
+- Sent **1 MTK** from Account A → B
 
-Total Supply
+### Approval Test
+- Approved Account B to spend **5 MTK**
 
-✔ Transfer Test
+### transferFrom Test
+- B transferred **2 MTK** from A → C
 
-Sent 1 MTK from Account A → B
+### Edge Case Handling
+- Zero-address transfer → reverted  
+- Insufficient balance → reverted  
+- Insufficient allowance → reverted  
 
-✔ Approval Test
+---
 
-Approved Account B to spend 5 MTK
+## 📸 Screenshots
 
-✔ transferFrom Test
+Screenshots stored in `/screenshots/`:
+- `compilation.png`
+- `deployment.png`
+- `token-info.png`
+- `transfer-test.png`
+- `events.png`
 
-Account B transferred 2 MTK from A → C
+---
 
-✔ Edge Case Handling
+## 📚 What I Learned
 
-Zero-address transfer → reverted
+- Internal functioning of ERC-20 tokens  
+- How allowances and delegated transfers work  
+- Importance of blockchain events for transparency  
+- How to compile, deploy, and test contracts in Remix  
+- Best practices like validations and event logging  
 
-Insufficient balance → reverted
+---
 
-Insufficient allowance → reverted
-
-📸 Screenshots
-
-Screenshots are stored in the /screenshots directory:
-
-compilation.png
-
-deployment.png
-
-token-info.png
-
-transfer-test.png
-
-events.png
-
-📚 What I Learned
-
-Internal working of ERC-20 tokens
-
-Allowance and delegated transfer mechanism
-
-Importance of blockchain events for transparency
-
-Contract compilation, deployment, and testing using Remix
-
-Best practices like validations and event logging
-
-📂 Project Structure
+## 📂 Project Structure
+```
 my-token/
 ├── contracts/
 │   └── MyToken.sol
@@ -197,17 +171,15 @@ my-token/
 │   ├── transfer-test.png
 │   └── events.png
 └── README.md
+```
 
-✅ Submission Ready
+---
+
+## ✅ Submission Ready
 
 This project includes:
-
-✔ Fully working ERC-20 token
-
-✔ Required screenshots
-
-✔ Complete documentation
-
-✔ Successful functional testing
-
-✔ Clean and readable Solidity code
+- Fully working ERC-20 token  
+- Required screenshots  
+- Complete documentation  
+- Successful testing  
+- Clean, readable code and professional README  
