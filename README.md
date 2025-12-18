@@ -92,8 +92,35 @@ Test functions like:
 - `balanceOf()`
 
 ---
+---
 
-## 📝 Usage Examples
+## 📸 Screenshots
+
+Screenshots stored in `/screenshots/`:
+- `compilation.png`
+- `deployment.png`
+- `token-info.png`
+- `transfer-test.png`
+- `events.png`
+
+---
+
+## 📂 Project Structure
+```
+my-token/
+├── contracts/
+│   └── MyToken.sol
+├── screenshots/
+│   ├── compilation.png
+│   ├── deployment.png
+│   ├── token-info.png
+│   ├── transfer-test.png
+│   └── events.png
+└── README.md
+```
+ 
+
+## Examples
 
 ### Check Balance
 ```
@@ -114,72 +141,3 @@ approve(0xSpender, 5000000000000000000)
 ```
 transferFrom(0xOwner, 0xReceiver, 2000000000000000000)
 ```
-
----
-
-## 🧪 Testing Performed
-
-### Metadata Verification
-- Name, Symbol, Decimals, Total Supply
-
-### Transfer Test
-- Sent **1 MTK** from Account A → B
-
-### Approval Test
-- Approved Account B to spend **5 MTK**
-
-### transferFrom Test
-- B transferred **2 MTK** from A → C
-
-### Edge Case Handling
-- Zero-address transfer → reverted  
-- Insufficient balance → reverted  
-- Insufficient allowance → reverted  
-
----
-
-## 📸 Screenshots
-
-Screenshots stored in `/screenshots/`:
-- `compilation.png`
-- `deployment.png`
-- `token-info.png`
-- `transfer-test.png`
-- `events.png`
-
----
-
-## 📚 What I Learned
-
-- Internal functioning of ERC-20 tokens  
-- How allowances and delegated transfers work  
-- Importance of blockchain events for transparency  
-- How to compile, deploy, and test contracts in Remix  
-- Best practices like validations and event logging  
-
----
-
-## 📂 Project Structure
-```
-my-token/
-├── contracts/
-│   └── MyToken.sol
-├── screenshots/
-│   ├── compilation.png
-│   ├── deployment.png
-│   ├── token-info.png
-│   ├── transfer-test.png
-│   └── events.png
-└── README.md
-```
-
----
-
-## ✅ Submission Ready
-
-This project includes:
-- Fully working ERC-20 token  
-- Required screenshots  
-- Complete documentation  
-- Successful testing  
-- Clean, readable code and professional README  
